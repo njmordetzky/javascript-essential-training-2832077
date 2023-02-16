@@ -6,7 +6,7 @@
   "author": "Morten Rand-Hendriksen",
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
-    "eslint": "^7.11.0",
+    "eslint": "^7.28.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",

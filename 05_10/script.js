@@ -52,11 +52,27 @@ const content = `
   
 `;
 
-const main = document.querySelector(".maincontent");
-
 const newArticle = document.createElement("article");
 newArticle.classList.add("backpack");
 newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
+const main = document.querySelector(".maincontent");
 main.append(newArticle);
+
+
+const nav =
+      <div class="feature-1">Home</div>
+      <div class="feature-2">About</div>
+      <div class="feature-3">Social Media</div>
+      <div class="feature-4">Shop</div>
+      <div class="feature-5">Connect</div>
+;
+
+newNavigation = document.createElement("div");
+newNavigation.classList.add("nav-container");
+newNavigation.setAttribute("style", "display: flex; flex-direction: column; width: 100px; height; 400px; flex-direction: column; background-color: DodgerBlue;");
+newNavigation.innerHTML = nav;
+
+const headerElement = document.createElement(".siteheader");
+main.prepend(newNavigation);

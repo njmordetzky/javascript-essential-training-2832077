@@ -51,6 +51,14 @@ const markup = (backpack) => {
 `;
 };
 
+console.log("the backpack object:", backpack);
+console.log("the Strap Length Left:", backpack.strapLength.left);
+console.log("the Strap Lengths:", backpack["strapLength"]);
+
+var variable = "strapLength";
+
+console.log("the Strap Lengths:", backpack[variable]);
+
 const main = document.createElement("main");
 main.innerHTML = markup(backpack);
 document.body.appendChild(main);

@@ -13,7 +13,22 @@
       type="text/css"
       media="all"
     />
-    <script type="module" src="script.js"></script>
+    <script type="module" src="script-copy.js"></script>
+    <script>
+      function updateStrapLength() {
+        if (document.querySelector(".left-bp-strap-input").value == "1") {
+          document.querySelector("li.backpack__strap span").innerHTML = document.querySelector(".left-bp-strap-input").value + " inch";
+        } else {
+          document.querySelector("li.backpack__strap span").innerHTML = document.querySelector(".left-bp-strap-input").value + " inches";
+        }
+        // document.querySelector("form.leftlength .left-bp-strap-input").classList.add("hidden-text");
+      }
+    </script>
+    <style>
+      .hidden-text {
+        color: transparent;
+      }
+    </style>
   </head>
   <body>
     <header class="siteheader">
@@ -47,11 +62,18 @@
             Left strap length: <span>26 inches</span>
             <form class="leftlength" data-children-count="1">
               <input
+                class="left-bp-strap-input"
                 type="number"
                 name="leftLength"
                 placeholder="New left length"
               />
-              <button>Update</button>
+              <button
+                class="left-bp-strap-bttn"
+                type="button"
+                onclick="updateStrapLength()"
+              >
+                Update
+              </button>
             </form>
           </li>
           <li class="feature backpack__strap" data-side="right">

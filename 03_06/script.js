@@ -21,4 +21,15 @@ const backpack = {
   },
 };
 
+
+// dot notation
 console.log("The backpack object:", backpack);
+console.log("How many pockets:", backpack.pocketNum);
+console.log("Left strap length:", backpack.strapLength.left);
+
+// bracket notation
+console.log("How many pockets:", backpack["pocketNum"]);
+
+var changepockets = "pocketNum";
+console.log("How many pockets:", backpack[changepockets]);
+

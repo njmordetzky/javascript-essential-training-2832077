@@ -5,55 +5,45 @@
  * - Set the inner HTML of the article to the existing HTML output provided in const content.
  * - Append each backpack object to the <main> element.
  */
-import Backpack from "./components/Backpack.js";
 
-const everydayPack = new Backpack(
-  "pack01",
-  "Everyday Backpack",
-  30,
-  "grey",
-  15,
-  26,
-  26,
-  false,
-  "December 5, 2018 15:00:00 PST",
-  "../assets/images/everyday.svg"
-);
+//  import Backpack from "./components/Backpack.js";
+ import backpackObjectArray from "./components/data.js";
 
-const content = `
-    <figure class="backpack__image">
-      <img src=${everydayPack.image} alt="" />
-    </figure>
-    <h1 class="backpack__name">${everydayPack.name}</h1>
-    <ul class="backpack__features">
-      <li class="packprop backpack__volume">Volume:<span> ${
-        everydayPack.volume
-      }l</span></li>
-      <li class="packprop backpack__color">Color:<span> ${
-        everydayPack.color
-      }</span></li>
-      <li class="backpack__age">Age:<span> ${everydayPack.backpackAge()} days old</span></li>
-      <li class="packprop backpack__pockets">Number of pockets:<span> ${
-        everydayPack.pocketNum
-      }</span></li>
-      <li class="packprop backpack__strap">Left strap length:<span> ${
-        everydayPack.strapLength.left
-      } inches</span></li>
-      <li class="packprop backpack__strap">Right strap length:<span> ${
-        everydayPack.strapLength.right
-      } inches</span></li>
-      <li class="feature backpack__lid">Lid status:<span> ${
-        everydayPack.lidOpen ? "open" : "closed"
-      }</span></li>
-    </ul>
-  
-`;
 
 const main = document.querySelector(".maincontent");
 
-const newArticle = document.createElement("article");
-newArticle.classList.add("backpack");
-newArticle.setAttribute("id", "everyday");
-newArticle.innerHTML = content;
+backpackObjectArray.forEach((nestedObject) => {
 
-main.append(newArticle);
+  let newArticle = document.createElement("article");
+  newArticle.setAttribute("id", nestedObject.id);
+
+  newArticle.innerHTML = `
+    <h1 class="backpack__name">${nestedObject.name}</h1>
+    <figure class="backpack__image" style="padding: 40px 0;">
+      <img src=${nestedObject.image} alt="" />
+    </figure>
+    <ul class="backpack__features">
+      <li class="packprop backpack__volume">Volume:<span> ${
+        nestedObject.volume
+      }l</span></li>
+      <li class="packprop backpack__color">Color:<span> ${
+        nestedObject.color
+      }</span></li>
+      <li class="backpack__age">Age:<span> ${nestedObject.backpackAge()} days old</span></li>
+      <li class="packprop backpack__pockets">Number of pockets:<span> ${
+        nestedObject.pocketNum
+      }</span></li>
+      <li class="packprop backpack__strap">Left strap length:<span> ${
+        nestedObject.strapLength.left
+      } inches</span></li>
+      <li class="packprop backpack__strap">Right strap length:<span> ${
+        nestedObject.strapLength.right
+      } inches</span></li>
+      <li class="feature backpack__lid">Lid status:<span> ${
+        nestedObject.lidOpen ? "open" : "closed"
+      }</span></li>
+    </ul>
+  `;
+
+  main.append(newArticle);
+});

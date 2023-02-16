@@ -3,15 +3,16 @@
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
 
-var color = "purple";
+var color = "purple"; // global scope
 
 document.querySelector(".left").style.backgroundColor = color;
 document.querySelector(".left .color-value").innerHTML = color;
 
-color = "skyblue";
+color = "skyblue"; // global scope
 
 function headingColor() {
-  color = "blue";
+  color = "blue"; // global scope
+  let color = "blue"; // local scope
   document.querySelector(".title").style.color = color;
 }
 

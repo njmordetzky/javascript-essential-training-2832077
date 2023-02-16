@@ -18,8 +18,7 @@ const everydayPack = new Backpack(
   "../assets/images/everyday.svg"
 );
 
-const content = `
-  <article class="backpack" id="everyday">
+const newContent = `
     <figure class="backpack__image">
       <img src=${everydayPack.image} alt="" />
     </figure>
@@ -45,9 +44,12 @@ const content = `
         everydayPack.lidOpen
       }</span></li>
     </ul>
-  </article>
 `;
 
-const main = document.querySelector(".maincontent");
+const newArticle = document.createElement("article");
+newArticle.classList.add("backpack");
+newArticle.setAttribute("id", "short-trip-backback");
+newArticle.innerHTML = newContent;
 
-main.innerHTML = content;
+const main = document.querySelector(".maincontent");
+main.append(newArticle);
